@@ -12,20 +12,19 @@
     <div class="container">
       <div class="row align-items-start g-5">
         <div class="col-lg-4 text-center">
-          <img
-            src="https://placehold.co/400x400/6c63ff/ffffff?text=Photo"
-            alt="Profile Photo"
-            class="profile-img shadow mb-4"
-          />
+          <img src="https://placehold.co/400x400/6c63ff/ffffff?text=Photo" alt="Profile Photo"
+            class="profile-img shadow mb-4" />
           <h4 class="fw-bold mb-1">Nathan Sears</h4>
           <p class="text-muted mb-3">Game & Software Developer</p>
           <div class="d-flex justify-content-center gap-3 fs-4">
             <a href="https://github.com/IceEmperor4944" class="text-secondary"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/nathan-m-sears/" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/nathan-m-sears/" class="text-secondary"><i
+                class="bi bi-linkedin"></i></a>
             <a href="blah.com/me" class="text-secondary"><i class="bi bi-twitter-x"></i></a>
           </div>
           <hr />
-          <a href="src\assets\files\NSearsResume_Newest.pdf" download="NSears_Resume.pdf" class="btn btn-primary w-100 mt-2">
+          <a href="src\assets\files\NSearsResume_Newest.pdf" download="NSears_Resume.pdf"
+            class="btn btn-primary w-100 mt-2">
             <i class="bi bi-download me-2"></i>Download Resume
           </a>
         </div>
@@ -40,9 +39,9 @@
             application development.
           </p>
           <p class="text-muted mb-4">
-            When I'm not writing game systems, you'll find me exploring new algorithms,
-            hacking together tools that make development faster, or playing whatever games
-            are inspiring me that week.
+            I also <i>love</i> music, both experienceing and creating. I have been playing
+            the violin for ~12 years, and can use many other instruments as well. I find
+            music to be an important part of my lifestyle, one I could hardly live without.
           </p>
 
           <!-- Skills -->
@@ -51,11 +50,7 @@
             <div class="col-12" v-for="group in skillGroups" :key="group.label">
               <div class="d-flex align-items-center gap-2 flex-wrap">
                 <span class="fw-semibold text-muted" style="min-width: 110px;">{{ group.label }}</span>
-                <span
-                  v-for="skill in group.skills"
-                  :key="skill"
-                  class="badge rounded-pill py-2 px-3 skill-badge"
-                >
+                <span v-for="skill in group.skills" :key="skill" class="badge rounded-pill py-2 px-3 skill-badge">
                   {{ skill }}
                 </span>
               </div>
@@ -104,35 +99,54 @@
   </section>
 </template>
 
-<script setup>
-const skillGroups = [
-  { label: 'Game Engines',  skills: ['Custom C++', 'Unity', 'Unreal'] },
-  { label: 'Languages',     skills: ['C/C++', 'C#', 'TypeScript', 'PHP', 'Python', 'JavaScript', 'Java'] },
-  { label: 'Frameworks',    skills: ['Vue.js', 'Nuxt.js', 'React', 'Laravel'] },
+<script setup lang="ts">
+interface SkillGroup {
+  label: string
+  skills: string[]
+}
+
+interface Job {
+  role: string
+  company: string
+  period: string
+  description: string
+}
+
+interface Education {
+  degree: string
+  school: string
+  period: string
+  description: string
+}
+
+const skillGroups: SkillGroup[] = [
+  { label: 'Game Engines', skills: ['Custom C++', 'Unity', 'Unreal'] },
+  { label: 'Languages', skills: ['C/C++', 'C#', 'TypeScript', 'PHP', 'Python', 'JavaScript', 'Java'] },
+  { label: 'Frameworks', skills: ['Vue.js', 'Nuxt.js', 'React', 'Laravel'] },
   //{ label: 'Databases',     skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Firebase'] },
   //{ label: 'DevOps',        skills: ['Docker', 'GitHub Actions', 'AWS', 'Nginx'] }
 ]
 
-const experience = [
+const experience: Job[] = [
   {
-    role:        'Game Developer - Intern',
-    company:     'DSD Laboratories',
-    period:      '2026 – Present',
+    role: 'Game Developer - Intern',
+    company: 'DSD Laboratories',
+    period: '2026 – Present',
     description: 'Design and create several small games for use in the company\'s LMS with Unity and Laravel.'
   },
   {
-    role:        'Full-Stack Developer - Intern',
-    company:     'Salt Lake City Weekly',
-    period:      '2026 – 2026',
+    role: 'Full-Stack Developer - Intern',
+    company: 'Salt Lake City Weekly',
+    period: '2026 – 2026',
     description: 'Program using Typescript, React, and Redux for the StellaMart mobile app.'
   }
 ]
 
-const education = [
+const education: Education[] = [
   {
-    degree:      'B.Sc. Software & Game Development',
-    school:      'Neumont University',
-    period:      '2023 – 2026',
+    degree: 'B.Sc. Software & Game Development',
+    school: 'Neumont University',
+    period: '2023 – 2026',
     description: 'Graduated with significant project & industry experience.'
   }
 ]

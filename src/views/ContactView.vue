@@ -51,20 +51,32 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ContactForm from '@/components/ContactForm.vue'
 
-const contactInfo = [
+interface ContactInfo {
+  label: string
+  icon: string
+  value: string
+}
+
+interface Social {
+  label: string
+  icon: string
+  address: string
+}
+
+const contactInfo: ContactInfo[] = [
   { label: 'Email',    icon: 'bi-envelope',    value: 'nsears@mdavenport.com' },
   { label: 'Location', icon: 'bi-geo-alt',     value: 'Salt Lake City, UT, USA' },
   { label: 'Phone',    icon: 'bi-telephone',   value: '+1 (970) 903-4627' },
   { label: 'Working',  icon: 'bi-clock',       value: 'Mon – Fri, 9am – 5pm EST' }
 ]
 
-const socials = [
+const socials: Social[] = [
   { label: 'GitHub',   icon: 'bi-github',      address: 'https://github.com/IceEmperor4944' },
   { label: 'LinkedIn', icon: 'bi-linkedin',    address: 'https://www.linkedin.com/in/nathan-m-sears/' },
-  { label: 'Twitter',  icon: 'bi-twitter-x',   address: 'blah.com/me'},
+  { label: 'Twitter',  icon: 'bi-twitter-x',   address: 'blah.com/me' },
   { label: 'Dribbble', icon: 'bi-dribbble',    address: 'blah.com/me' }
 ]
 </script>

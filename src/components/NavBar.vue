@@ -44,12 +44,18 @@
   </nav>
 </template>
 
-<script setup>
-import { useTheme } from '@/composables/useTheme.js'
+<script setup lang="ts">
+import { useTheme } from '@/composables/useTheme'
 
 const { isDark, toggleTheme } = useTheme()
 
-const links = [
+interface NavLink {
+  to: string
+  label: string
+  icon: string
+}
+
+const links: NavLink[] = [
   { to: '/',          label: 'Home',      icon: 'bi-house'    },
   { to: '/about',     label: 'About',     icon: 'bi-person'   },
   { to: '/portfolio', label: 'Portfolio', icon: 'bi-grid'     },

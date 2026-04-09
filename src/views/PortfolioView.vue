@@ -90,35 +90,35 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import MediaCard from '@/components/MediaCard.vue'
-import { projects } from '@/data/projects.js'
-import { mediaItems } from '@/data/mediaItems.js'
+import { projects } from '@/data/projects'
+import { mediaItems, type MediaType } from '@/data/mediaItems'
 
-const activeTab    = ref('projects')
-const activeFilter = ref(null)
-const mediaFilter  = ref('all')
+const activeTab    = ref<string>('projects')
+const activeFilter = ref<string | null>(null)
+const mediaFilter  = ref<string>('all')
 
-const allTags = computed(() => {
+const allTags = computed<string[]>(() => {
   const tags = projects.flatMap(p => p.tags)
   return [...new Set(tags)].sort()
 })
 
 const filteredProjects = computed(() =>
   activeFilter.value
-    ? projects.filter(p => p.tags.includes(activeFilter.value))
+    ? projects.filter(p => p.tags.includes(activeFilter.value!))
     : projects
 )
 
 const filteredMedia = computed(() =>
   mediaFilter.value === 'all'
     ? mediaItems
-    : mediaItems.filter(m => m.type === mediaFilter.value)
+    : mediaItems.filter(m => m.type === (mediaFilter.value as MediaType))
 )
 
-const mediaIcons = {
+const mediaIcons: Record<string, string> = {
   all:   'bi-collection',
   image: 'bi-image',
   video: 'bi-play-circle',

@@ -35,13 +35,20 @@
   </div>
 </template>
 
-<script setup>
-defineProps({
-  title:       { type: String, required: true },
-  description: { type: String, default: '' },
-  imageUrl:    { type: String, default: 'https://placehold.co/600x300/6c63ff/ffffff?text=Project' },
-  tags:        { type: Array,  default: () => [] },
-  liveUrl:     { type: String, default: '' },
-  repoUrl:     { type: String, default: '' }
+<script setup lang="ts">
+interface Props {
+  title: string
+  description?: string
+  imageUrl?: string
+  tags?: string[]
+  liveUrl?: string
+  repoUrl?: string
+}
+withDefaults(defineProps<Props>(), {
+  description: '',
+  imageUrl: 'https://placehold.co/600x300/6c63ff/ffffff?text=Project',
+  tags: () => [],
+  liveUrl: '',
+  repoUrl: ''
 })
 </script>

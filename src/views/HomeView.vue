@@ -67,14 +67,19 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HeroSection from '@/components/HeroSection.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
-import { projects } from '@/data/projects.js'
+import { projects } from '@/data/projects'
+
+interface Stat {
+  value: string
+  label: string
+}
 
 const featured = projects.slice(0, 3)
 
-const stats = [
+const stats: Stat[] = [
   { value: '3+',  label: 'Years Experience' },
   { value: '15+', label: 'Projects Built' },
   { value: '7+',  label: 'Languages Known' },

@@ -1,8 +1,8 @@
 import { ref, watch } from 'vue'
 
-const isDark = ref(localStorage.getItem('theme') !== 'light')
+const isDark = ref<boolean>(localStorage.getItem('theme') !== 'light')
 
-watch(isDark, (dark) => {
+watch(isDark, (dark: boolean) => {
   document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
   localStorage.setItem('theme', dark ? 'dark' : 'light')
 }, { immediate: true })
@@ -10,6 +10,6 @@ watch(isDark, (dark) => {
 export function useTheme() {
   return {
     isDark,
-    toggleTheme: () => { isDark.value = !isDark.value }
+    toggleTheme: (): void => { isDark.value = !isDark.value }
   }
 }

@@ -38,25 +38,37 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+import type { MediaType } from '@/data/mediaItems'
 
-const props = defineProps({
-  type:    { type: String, default: 'image' }, // 'image' | 'video' | 'embed'
-  src:     { type: String, required: true },
-  title:   { type: String, default: 'Media' },
-  caption: { type: String, default: '' }
+interface Props {
+  type?: MediaType
+  src: string
+  title?: string
+  caption?: string
+}
+const props = withDefaults(defineProps<Props>(), {
+  type: 'image',
+  title: 'Media',
+  caption: ''
 })
 
-const typeIcon = computed(() => ({
-  image: 'bi-image',
-  video: 'bi-play-circle',
-  embed: 'bi-youtube'
-}[props.type] ?? 'bi-file-earmark'))
+const typeIcon = computed<string>(() => {
+  const icons: Record<MediaType, string> = {
+    image: 'bi-image',
+    video: 'bi-play-circle',
+    embed: 'bi-youtube'
+  }
+  return icons[props.type]
+})
 
-const typeBadgeClass = computed(() => ({
-  image: 'bg-success',
-  video: 'bg-info text-dark',
-  embed: 'bg-danger'
-}[props.type] ?? 'bg-secondary'))
+const typeBadgeClass = computed<string>(() => {
+  const classes: Record<MediaType, string> = {
+    image: 'bg-success',
+    video: 'bg-info text-dark',
+    embed: 'bg-danger'
+  }
+  return classes[props.type]
+})
 </script>

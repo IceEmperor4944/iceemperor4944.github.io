@@ -67,15 +67,21 @@
   </form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, ref } from 'vue'
 
-const submitted = ref(false)
+interface FormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
 
-const form = reactive({ name: '', email: '', subject: '', message: '' })
-const errors = reactive({ name: false, email: false, subject: false, message: false })
+const submitted = ref<boolean>(false)
+const form = reactive<FormData>({ name: '', email: '', subject: '', message: '' })
+const errors = reactive<Record<keyof FormData, boolean>>({ name: false, email: false, subject: false, message: false })
 
-function handleSubmit() {
+function handleSubmit(): void {
   errors.name    = !form.name.trim()
   errors.email   = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
   errors.subject = !form.subject.trim()

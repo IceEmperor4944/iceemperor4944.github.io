@@ -22,7 +22,7 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
-const year = computed(() => new Date().getFullYear())
+const year = computed<number>(() => new Date().getFullYear())
 </script>

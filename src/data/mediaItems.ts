@@ -1,4 +1,14 @@
-export const mediaItems = [
+export type MediaType = 'image' | 'video' | 'embed'
+
+export interface MediaItem {
+  id: number
+  type: MediaType
+  src: string
+  title: string
+  caption: string
+}
+
+export const mediaItems: MediaItem[] = [
   {
     id: 1,
     type: 'image',

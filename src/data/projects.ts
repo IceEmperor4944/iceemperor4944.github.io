@@ -1,4 +1,14 @@
-export const projects = [
+export interface Project {
+  id: number
+  title: string
+  description: string
+  imageUrl: string
+  tags: string[]
+  liveUrl: string
+  repoUrl: string
+}
+
+export const projects: Project[] = [
   {
     id: 1,
     title: '2D Game Engine (C++)',
@@ -49,7 +59,7 @@ export const projects = [
     title: 'Portfolio Website',
     description: 'This portfolio site — built with Vue 3, Bootstrap 5, and SCSS with dark mode, responsive layout, and a terminal-inspired design.',
     imageUrl: 'https://placehold.co/600x300/0a0d1a/7c3aed?text=Portfolio',
-    tags: ['Vue 3', 'JavaScript', 'SCSS'],
+    tags: ['Vue 3', 'TypeScript', 'SCSS'],
     liveUrl: '#',
     repoUrl: '#'
   }

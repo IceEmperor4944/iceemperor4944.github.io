@@ -52,9 +52,13 @@
   </section>
 </template>
 
-<script setup>
-defineProps({
-  title:    { type: String, default: 'Hi, I\'m Nathan.' },
-  subtitle: { type: String, default: 'Game & Software Developer — I build engines, games, and full-stack tools.' }
+<script setup lang="ts">
+interface Props {
+  title?: string
+  subtitle?: string
+}
+withDefaults(defineProps<Props>(), {
+  title: "Hi, I'm Nathan.",
+  subtitle: 'Game & Software Developer — I build engines, games, and full-stack tools.'
 })
 </script>

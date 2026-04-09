@@ -363,7 +363,7 @@ html[data-theme="dark"] .card {
 
 .card-img-top {
   border-radius: 7px 7px 0 0;
-  object-fit: cover;
+  object-fit: scale-down;
   height: 200px;
 }
 

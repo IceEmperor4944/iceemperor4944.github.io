@@ -11,12 +11,12 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: '2D Game Engine (C++)',
+    title: 'Knights of Time',
     description: 'Custom 2D game engine built from scratch in C++ with OpenGL rendering, physics simulation, and an entity-component system architecture.',
-    imageUrl: 'https://placehold.co/600x300/0d0d1a/22d3ee?text=C%2B%2B+Engine',
-    tags: ['C++', 'OpenGL', 'Game Engine'],
+    imageUrl: '../src/assets/files/goodKnightIdle.gif',
+    tags: ['C++', 'Raylib', 'Custom Game Engine'],
     liveUrl: '#',
-    repoUrl: '#'
+    repoUrl: 'https://github.com/IceEmperor4944/KnightsOfTime'
   },
   {
     id: 2,

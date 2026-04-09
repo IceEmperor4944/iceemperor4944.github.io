@@ -33,14 +33,13 @@
           <h2 class="section-title">Hello, World!</h2> <!-- Potentially change text later -->
           <div class="section-divider"></div>
           <p class="text-muted fs-5 mb-4">
-            I'm a game &amp; software developer with a focus on systems programming and
-            interactive experiences. I build everything from custom C++ game engines to
-            full-stack web tools — bridging low-level performance with practical
-            application development.
+            I'm a Game &amp; Software Developer focused on low-level creation and
+            design. I have worked with common frameworks and custom engines, with
+            experience in web, mobile, and desktop applications.
           </p>
           <p class="text-muted mb-4">
             I also <i>love</i> music, both experienceing and creating. I have been playing
-            the violin for ~12 years, and can use many other instruments as well. I find
+            the violin for ~11 years, and can use many other instruments as well. I find
             music to be an important part of my lifestyle, one I could hardly live without.
           </p>
 

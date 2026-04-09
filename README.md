@@ -1,1 +1,0 @@
-# mdavenport.github.io
